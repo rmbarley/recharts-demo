@@ -10,6 +10,7 @@ const TransactionSchema = new Schema(
     },
     amount: {
       type: mongoose.Types.Decimal128,
+      get: (v) => parseFloat(v),
     },
     productIds: [
       {

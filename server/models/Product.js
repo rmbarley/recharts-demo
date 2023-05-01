@@ -6,9 +6,11 @@ const ProductSchema = new Schema(
   {
     price: {
       type: mongoose.Types.Decimal128,
+      get: (v) => parseFloat(v),
     },
     expense: {
       type: mongoose.Types.Decimal128,
+      get: (v) => parseFloat(v),
     },
     transactions: [
       {
