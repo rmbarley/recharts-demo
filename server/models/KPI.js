@@ -1,31 +1,21 @@
 import mongoose from 'mongoose';
-import { loadType } from 'mongoose-currency';
 
 const Schema = mongoose.Schema;
-loadType(mongoose);
 
 const monthSchema = new Schema(
   {
     month: String,
     revenue: {
-      type: mongoose.Types.Currency,
-      currency: 'USD',
-      get: (v) => v / 100,
+      type: mongoose.Types.Decimal128,
     },
     expenses: {
-      type: mongoose.Types.Currency,
-      currency: 'USD',
-      get: (v) => v / 100,
+      type: mongoose.Types.Decimal128,
     },
     operationalExpenses: {
-      type: mongoose.Types.Currency,
-      currency: 'USD',
-      get: (v) => v / 100,
+      type: mongoose.Types.Decimal128,
     },
     nonOperationalExpenses: {
-      type: mongoose.Types.Currency,
-      currency: 'USD',
-      get: (v) => v / 100,
+      type: mongoose.Types.Decimal128,
     },
   },
   { toJSON: { getters: true } }
@@ -35,14 +25,10 @@ const daySchema = new Schema(
   {
     date: String,
     revenue: {
-      type: mongoose.Types.Currency,
-      currency: 'USD',
-      get: (v) => v / 100,
+      type: mongoose.Types.Decimal128,
     },
     expenses: {
-      type: mongoose.Types.Currency,
-      currency: 'USD',
-      get: (v) => v / 100,
+      type: mongoose.Types.Decimal128,
     },
   },
   { toJSON: { getters: true } }
@@ -51,26 +37,18 @@ const daySchema = new Schema(
 const KPISchema = new Schema(
   {
     totalProfit: {
-      type: mongoose.Types.Currency,
-      currency: 'USD',
-      get: (v) => v / 100,
+      type: mongoose.Types.Decimal128,
     },
     totalRevenue: {
-      type: mongoose.Types.Currency,
-      currency: 'USD',
-      get: (v) => v / 100,
+      type: mongoose.Types.Decimal128,
     },
     totalExpenses: {
-      type: mongoose.Types.Currency,
-      currency: 'USD',
-      get: (v) => v / 100,
+      type: mongoose.Types.Decimal128,
     },
     expensesByCategory: {
       type: Map,
       of: {
-        type: mongoose.Types.Currency,
-        currency: 'USD',
-        get: (v) => v / 100,
+        type: mongoose.Types.Decimal128,
       },
     },
     monthlyData: [monthSchema],

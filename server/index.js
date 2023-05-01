@@ -43,9 +43,9 @@ mongoose
   .then(async () => {
     app.listen(PORT, () => console.log('Listening on port ' + PORT));
     // Add data once
-    // await mongoose.connection.db.dropDatabase();
-    // KPI.insertMany(kpis);
-    // Product.insertMany(products);
-    // Transaction.insertMany(transactions);
+    await mongoose.connection.db.dropDatabase();
+    KPI.insertMany(kpis);
+    Product.insertMany(products);
+    Transaction.insertMany(transactions);
   })
   .catch((error) => console.log('Connection error: ' + error));
