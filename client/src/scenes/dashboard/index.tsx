@@ -153,6 +153,7 @@ const Dashboard = () => {
   }, [kpiData]);
 
   const revenueExpenses = useMemo(() => {
+    console.log(kpiData);
     return (
       kpiData &&
       kpiData[0].monthlyData.map(({ month, revenue, expenses }) => {
